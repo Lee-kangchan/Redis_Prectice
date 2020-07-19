@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.annotation.Generated;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +45,25 @@ public class HomeController {
 		SpringRedisExample ex = new SpringRedisExample();
 		ex.string("people", name, age);
 		
+		return "home";
+	}
+	@GetMapping(value = "/{name}/{value}/{value2}")
+	public String home3(@PathVariable String name, @PathVariable String value, @PathVariable String value2) {
+		
+		SpringRedisExample ex = new SpringRedisExample();
+		ex.list(name, value);
+		ex.sort(name, value2);
+		return "home";
+	}
+	@GetMapping(value = "/delete/list/{number}")
+	public String home4(@PathVariable String number) {
+		
+		if(number.equals("1")) {
+			
+		}
+		else if(number.equals("2")) {
+			
+		}
 		return "home";
 	}
 	
